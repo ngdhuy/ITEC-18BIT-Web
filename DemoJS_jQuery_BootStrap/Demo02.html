@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Demo JavaScript (cont)</title>
+</head>
+<body>
+    <h1>Demo HTML DOM</h1>
+    <button type='button' onclick='add()'>Add</button>
+    <button type='button' onclick='deleteOne()'>Delete</button>
+    <button type='button' onclick='deleteAll()'>Delete All</button>
+    <div id="pos"></div>
+
+    <script type='text/javascript'>
+        var divNode = document.getElementById('pos');
+        var i = 1;
+
+        function add() {
+            let pNode = document.createElement('p');
+            let textNode = document.createTextNode(i+'. Item');
+            pNode.appendChild(textNode);
+            divNode.appendChild(pNode);
+            i++;
+        }
+
+        function deleteOne() {
+            if(i != 1) {
+                divNode.removeChild(divNode.lastChild);
+                i--;
+            }
+        }
+
+        function deleteAll() {
+            divNode.innerHTML = "";
+        }
+    </script>
+</body>
+</html>
