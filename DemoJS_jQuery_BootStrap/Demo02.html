@@ -8,9 +8,10 @@
 </head>
 <body>
     <h1>Demo HTML DOM</h1>
-    <button type='button' onclick='add()'>Add</button>
-    <button type='button' onclick='deleteOne()'>Delete</button>
-    <button type='button' onclick='deleteAll()'>Delete All</button>
+    <button type='button' class='add'>Add</button>
+    <button type='button' class='deleteOne'>Delete</button>
+    <button type='button' id='deleteAll'>Delete All</button>
+    <input type='text' />
     <div id="pos"></div>
 
     <script type='text/javascript'>
@@ -34,7 +35,24 @@
 
         function deleteAll() {
             divNode.innerHTML = "";
+            i = 1;
         }
+
+        let btnAdd = document.querySelector('.add');
+        let btnDeleteOne = document.querySelector('.deleteOne');
+        let btnDeleteAll = document.querySelector('#deleteAll');
+
+        btnAdd.addEventListener('click', add);
+        btnDeleteOne.addEventListener('click', deleteOne);
+        btnDeleteAll.addEventListener('click', deleteAll);
+
+        let inputNode = document.querySelector('input');
+        inputNode.addEventListener('focus', function(){
+            document.bgColor = "#cc3366";
+        });
+        inputNode.addEventListener('blur', function(){
+            document.bgColor = "#3366cc";
+        });
     </script>
 </body>
 </html>
